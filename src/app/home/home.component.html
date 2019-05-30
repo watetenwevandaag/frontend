@@ -1,0 +1,27 @@
+
+<ul id='recipeList' *ngIf="recipes">
+  <h1>Heerlijke Recepten:</h1>
+  <li style="background-color:lightgray; border-radius: 25px; padding:20px; margin-bottom: 30px;" *ngFor="let test of recipes">
+    <div>
+      <h1>{{test.name}}</h1>
+        <p>Gemaakt door: {{test.owner.username }}</p>
+        <p>Voor {{test.forNumberOfPeople}} personen</p>
+        <p>Dit recept duurt: {{test.cookingTime}} om te maken.</p>
+        <p> {{test.description}}</p>
+        <p> Is vegatarisch: {{test.isVegan}}</p>
+        <h3>Ingredienten</h3>
+        <ul>
+          <li *ngFor="let ingredient of test.ingredients" >
+              <p>{{ingredient.name}}, hoeveelheid: {{ingredient.quantity}} {{ingredient.unit}}</p>
+          </li>
+        </ul>
+        <h3>Matrialen:</h3>
+        <ul>
+            <li *ngFor="let equipment of test.equipmentUsed" >
+                <p>{{equipment}}</p>
+            </li>
+        </ul>
+        <p>Likes: {{test.likes}} en Dislikes: {{test.dislikes}}</p>
+    </div>
+  </li>
+</ul>

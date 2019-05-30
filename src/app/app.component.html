@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <button *ngIf="this.userData.getCook().username == null" style="margin-left: 10px;" class="btn btn-success" (click)= "this.userData.setViewData('Login')">Login!</button>
+    <h1 *ngIf="this.userData.getCook().username != null" style="color: lightgreen">Welkom, {{this.userData.getCook().username}}</h1>
+    <button *ngIf="this.userData.getCook().username != null" style="margin-left: 10px;" class="btn btn-success" (click)= "this.userData.setViewData('CreateRecipe')">Creëer Recept</button>
+    <button *ngIf="this.userData.getCook().username != null" style="margin-left: 10px;" class="btn btn-success" (click)= "this.userData.setViewData('GenerateWeekMenu')">Geneer Weekmenu</button>
+    <form style="margin-left:auto; margin-right:0;" class="form-inline" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <input class="form-control mr-sm-2" type="text" placeholder="Zoek Recept" formControlName="name">
+      <button class="btn btn-success" type="submit">Zoek!</button>
+    </form>
+</nav>
+
+<div *ngIf="this.userData.getViewData() == 'Start' || this.userData.getViewData() == 'Search' || this.userData.getViewData() == 'OwnRecipes'">
+    <app-display></app-display>
+</div>
+
+<div *ngIf="this.userData.getViewData() == 'Login'">
+    <app-login></app-login>
+</div>
+
+<div *ngIf="this.userData.getViewData() == 'Register'">
+    <app-register></app-register>
+</div>
+
+<div *ngIf="this.userData.getViewData() == 'CreateRecipe'">
+    <app-create></app-create>
+</div>
+
+<div *ngIf="this.userData.getViewData() == 'GenerateWeekMenu'">
+    <app-register></app-register>
+</div>
+
+<router-outlet></router-outlet>

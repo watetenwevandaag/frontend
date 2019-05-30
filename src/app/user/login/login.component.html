@@ -1,0 +1,20 @@
+
+<div>
+  <form style="text-align: center; padding-top: 1vh; height: 400px; width: 200px; background-color: lightgreen; border-radius: 20px; margin-top: 60px; margin-left: auto; margin-right: auto;" #loginForm="ngForm" (ngSubmit)="loginAttempt(loginUser);" class="col-md-8">
+    <h2>Log In</h2>
+    <div class="form-group">
+      <label for="login-username">Username</label>
+      <input type="text" class="form-control" #loginusername="ngModel" required name="login-username" [(ngModel)]="loginUser.username" placeholder="Username"/>
+    </div>
+
+    <div class="form-group">
+      <label for="login-password">Password</label>
+      <input type="password" #loginpassword="ngModel" class="form-control" #loginpassword="ngModel" required name="login-password" [(ngModel)]="loginUser.password" placeholder="Password"/>
+    </div>
+    <button class="btn btn-success" [disabled]="!loginForm.valid">Log in</button>
+    <button type="button" class="btn btn-warning" (click)= "this.userData.setViewData('Register')" >Register</button>
+    <div *ngIf="succes == -1" class="alert alert-danger">
+    Incorrect Credentials
+    </div>
+  </form>
+</div>

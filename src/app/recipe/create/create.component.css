@@ -1,0 +1,17 @@
+#recipeList {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: space-evenly;
+}
+
+#recipeList > h1 {
+    width: 100%;
+}
+
+#recipeList > li {
+    width: 30%;
+}
