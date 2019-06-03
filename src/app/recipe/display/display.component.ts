@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { RecipeService } from 'src/app/recipe.service';
 import { Recipe } from 'src/app/models/recipe.model';
 import { UserdataService } from 'src/app/userdata.service';
@@ -8,22 +8,17 @@ import { UserdataService } from 'src/app/userdata.service';
   templateUrl: './display.component.html',
   styleUrls: ['./display.component.css']
 })
-export class DisplayComponent implements OnInit {
+export class DisplayComponent implements OnChanges {
+
+  @Input() recipes: Recipe[];
 
   constructor(private userData: UserdataService) { }
-  
-  recipes: Object;
-
-  ngOnInit() {
-  
-  }
-
-  
-  @Input() 
-  test = this.userData.getRecipes;
 
   ngOnChanges(changes: SimpleChanges) {
-      this.recipes = changes.test.firstChange;
+      console.log(changes.recipes.currentValue);
   }
+
+  
+
 
 }

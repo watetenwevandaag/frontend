@@ -1,16 +1,17 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <button *ngIf="this.userData.getCook().username == null" style="margin-left: 10px;" class="btn btn-success" (click)= "this.userData.setViewData('Login')">Login!</button>
-    <h1 *ngIf="this.userData.getCook().username != null" style="color: lightgreen">Welkom, {{this.userData.getCook().username}}</h1>
+    <button id="test" *ngIf="this.userData.getCook().username == null" style="margin-left: 10px;" class="btn btn-success" (click)= "this.userData.setViewData('Login')">Login!</button>
+    <h1 id="usernameTitle" *ngIf="this.userData.getCook().username != null" style="color: lightgreen">Welkom, {{this.userData.getCook().username}}</h1>
+    <h1 *ngIf="this.userData.getCook().username == null" style="color: lightgreen">Welkom</h1>
     <button *ngIf="this.userData.getCook().username != null" style="margin-left: 10px;" class="btn btn-success" (click)= "this.userData.setViewData('CreateRecipe')">Creëer Recept</button>
-    <button *ngIf="this.userData.getCook().username != null" style="margin-left: 10px;" class="btn btn-success" (click)= "this.userData.setViewData('GenerateWeekMenu')">Geneer Weekmenu</button>
+    <button *ngIf="this.userData.getCook().username != null" style="margin-left: 10px;" class="btn btn-success" (click)= "generateWeekMenu()">Geneer Weekmenu</button>
     <form style="margin-left:auto; margin-right:0;" class="form-inline" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
       <input class="form-control mr-sm-2" type="text" placeholder="Zoek Recept" formControlName="name">
-      <button class="btn btn-success" type="submit">Zoek!</button>
+      <button id="searchButton" class="btn btn-success" type="submit">Zoek!</button>
     </form>
 </nav>
 
-<div *ngIf="this.userData.getViewData() == 'Start' || this.userData.getViewData() == 'Search' || this.userData.getViewData() == 'OwnRecipes'">
-    <app-display></app-display>
+<div *ngIf="this.userData.getViewData() == 'Start' || this.userData.getViewData() == 'Search' || this.userData.getViewData() == 'OwnRecipes' || this.userData.getViewData() == 'GenerateWeekMenu'">
+    <app-display [recipes]="recipes"></app-display>
 </div>
 
 <div *ngIf="this.userData.getViewData() == 'Login'">

@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
 
   constructor(private recipeService: RecipeService, public userData: UserdataService){}
 
+  recipes: Recipe[];
+
   ngOnInit(){
     this.userData.setViewData('Start')
     this.getAllRecipes();
@@ -30,21 +32,28 @@ export class AppComponent implements OnInit {
 
   onSubmit(){
       console.log(this.searchForm.value.name)
+      this.getSearchRecipes(this.searchForm.value.name);
       this.userData.setViewData('Search')
       this.searchForm.reset();
-      this.getSearchRecipes(this.searchForm.value.name);
   }
 
   getAllRecipes(){
     this.recipeService.getRecipes().then((recipeList: Recipe[]) => {
-      this.userData.setRecipes(recipeList);
+      this.recipes = recipeList;
     })
   }
 
   getSearchRecipes(word: string){
     this.recipeService.searchRecipe(word).then((recipeList: Recipe[]) => {
-      this.userData.setRecipes(recipeList);
+      this.recipes = recipeList;
     })
+  }
+
+  generateWeekMenu(){
+    this.recipeService.getWeekMenu().then((recipeList: Recipe[]) => {
+      this.recipes = recipeList;
+    })
+    this.userData.setViewData('GenerateWeekMenu');
   }
 
 

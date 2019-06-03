@@ -1,5 +1,5 @@
 <div>
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <h2>Register</h2>
     <div class="form-group">
       <label for="register-username">Email</label>
@@ -16,7 +16,7 @@
       <input type="password" class="form-control" placeholder="Password" formControlName="password"/>
     </div>
 
-    <button class="btn btn-success" >Register!</button>
+    <button id="registerCompleteButton" class="btn btn-success" >Register!</button>
     <div *ngIf="this.succes === 1" class="alert alert-danger">
       Woops something went wrong
     </div>

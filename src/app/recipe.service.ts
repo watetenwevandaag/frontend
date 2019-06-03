@@ -24,7 +24,14 @@ export class RecipeService {
   }
 
   public searchRecipe(name: string): Promise<Recipe[]>{
-    return this.http.post('http://localhost:8090/recipe/byName', name)
+    return this.http.get('http://localhost:8090/recipe/byName/'+ name)
+    .toPromise()
+    .then(response => response as Recipe)
+    .catch(this.handleError);
+  }
+
+  public getWeekMenu(): Promise<Recipe[]>{
+    return this.http.get('http://localhost:8090/recipe/weekmenu')
     .toPromise()
     .then(response => response as Recipe)
     .catch(this.handleError);
