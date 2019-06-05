@@ -3,6 +3,7 @@ import { browser, logging } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
+  var EC = browser.ExpectedConditions;
 
   beforeEach(() => {
     browser.ignoreSynchronization = true;
@@ -24,19 +25,23 @@ describe('workspace-project App', () => {
     expect(page.getSearchField().getText()).toEqual('');
   });
 
-  it('should create account', () => {
+  it('should create account and login', () => {
+    var i = 1;
     page.navigateTo();
     page.getLoginButton().click();
-    browser.wait(browser.ExpectedConditions.presenceOf(page.getRegisterButton()), 10000)
     page.getRegisterButton().click();
-    page.getRegisterFormFieldEmail().sendKeys('AutoTestUser')
-    page.getRegisterFormFieldUsername().sendKeys('AutoTestUser')
-    page.getRegisterFormFieldPassword().sendKeys('AutoTestUser')
+    page.getRegisterFormFieldEmail().sendKeys('AutoTestUser'+i)
+    page.getRegisterFormFieldUsername().sendKeys('AutoTestUser'+i)
+    page.getRegisterFormFieldPassword().sendKeys('AutoTestUser'+i)
+    browser.wait(EC.elementToBeClickable(page.getRegisterCompleteButton()),5000);
     page.getRegisterCompleteButton().click();
-    page.getRegisterFormFieldUsername().sendKeys('AutoTestUser')
-    page.getRegisterFormFieldPassword().sendKeys('AutoTestUser')
-    page.getRegisterForm().submit();
-    expect(page.getUsernameTitle()).toEqual('AutoTestUser');
+    browser.wait(EC.presenceOf(page.getLoginPasswordField()),5000);
+    expect(page.getLoginPasswordField().getText()).toEqual('')
+    page.getLoginPasswordField().sendKeys('AutoTestUser'+i)
+    page.getLoginUsernameField().sendKeys('AutoTestUser'+i)
+    page.getLoginCompleteButton().click();
+    browser.wait(EC.presenceOf(page.getCreateRecipeButton()),10000);
+    expect(EC.presenceOf(page.getCreateRecipeButton())).toBeTruthy();
   });
 
   afterEach(async () => {

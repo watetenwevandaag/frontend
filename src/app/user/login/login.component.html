@@ -4,12 +4,12 @@
     <h2>Log In</h2>
     <div class="form-group">
       <label for="login-username">Username</label>
-      <input type="text" class="form-control" #loginusername="ngModel" required name="login-username" formControlName="username" [(ngModel)]="loginUser.username" placeholder="Username"/>
+      <input id="loginUsernameForm" type="text" class="form-control" #loginusername="ngModel" required name="login-username" [(ngModel)]="loginUser.username" placeholder="Username"/>
     </div>
 
     <div class="form-group">
       <label for="login-password">Password</label>
-      <input type="password" #loginpassword="ngModel" class="form-control" #loginpassword="ngModel" required name="login-password" formControlName="password" [(ngModel)]="loginUser.password" placeholder="Password"/>
+      <input id ="loginPasswordForm" type="password" #loginpassword="ngModel" class="form-control" #loginpassword="ngModel" required name="login-password" [(ngModel)]="loginUser.password" placeholder="Password"/>
     </div>
     <button id="loginCompleteButton"class="btn btn-success" [disabled]="!loginForm.valid">Log in</button>
     <button id="registerButton" type="button" class="btn btn-warning" (click)= "this.userData.setViewData('Register')" >Register</button>

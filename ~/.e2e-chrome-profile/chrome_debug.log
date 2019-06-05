@@ -1,0 +1,57 @@
+[19860:17628:0605/111242.618:WARNING:leveldb_database.cc(106)] Unable to open D:\GitKraken\Repos\WEWV-FrontEnd\~\.e2e-chrome-profile\Default\shared_proto_db: Invalid argument: D:\GitKraken\Repos\WEWV-FrontEnd\~\.e2e-chrome-profile\Default\shared_proto_db: does not exist (create_if_missing is false)
+[19860:20152:0605/111247.373:WARNING:oom_memory_details.cc(46)] Tab Discards Memory details (849 ms):
+GPU [] 82 MB
+Tab [Nieuw tabblad] 47 MB
+Browser 25 MB
+Extension [Chrome Automation Extension] 18 MB
+Utility [Network Service] 11 MB
+
+[19860:20152:0605/111250.376:INFO:CONSOLE(8)] "SW registered", source: https://www.google.com/_/chrome/newtab?ie=UTF-8 (8)
+[19860:20152:0605/111251.546:WARNING:oom_memory_details.cc(46)] Tab Discards Memory details (19 ms):
+GPU [] 82 MB
+Tab [Nieuw tabblad] 47 MB
+Browser 24 MB
+Extension [Chrome Automation Extension] 18 MB
+Utility [Network Service] 11 MB
+
+[19860:20152:0605/111258.541:INFO:CONSOLE(884)] "Start", source: http://localhost:4200/main.js (884)
+[19860:20152:0605/111258.574:INFO:CONSOLE(566)] "undefined", source: http://localhost:4200/main.js (566)
+[19860:20152:0605/111258.597:INFO:CONSOLE(52952)] "Angular is running in the development mode. Call enableProdMode() to enable the production mode.", source: http://localhost:4200/vendor.js (52952)
+[19860:20152:0605/111258.643:WARNING:oom_memory_details.cc(46)] Tab Discards Memory details (2117 ms):
+Tab [Wewv] 108 MB
+GPU [] 88 MB
+Browser 25 MB
+Extension [Chrome Automation Extension] 18 MB
+Utility [Network Service] 11 MB
+
+[19860:20152:0605/111259.198:INFO:CONSOLE(101571)] "WebSocket connection to 'ws://localhost:4200/sockjs-node/818/0i0lku02/websocket' failed: WebSocket is closed before the connection is established.", source: http://localhost:4200/vendor.js (101571)
+[19860:20152:0605/111301.889:INFO:CONSOLE(884)] "Start", source: http://localhost:4200/main.js (884)
+[19860:20152:0605/111301.905:INFO:CONSOLE(566)] "undefined", source: http://localhost:4200/main.js (566)
+[19860:20152:0605/111301.915:INFO:CONSOLE(52952)] "Angular is running in the development mode. Call enableProdMode() to enable the production mode.", source: http://localhost:4200/vendor.js (52952)
+[19860:20152:0605/111301.964:WARNING:oom_memory_details.cc(46)] Tab Discards Memory details (437 ms):
+Tab [Wewv] 155 MB
+GPU [] 72 MB
+Browser 27 MB
+Extension [Chrome Automation Extension] 18 MB
+Utility [Network Service] 11 MB
+
+[19860:20152:0605/111302.298:INFO:CONSOLE(101571)] "WebSocket connection to 'ws://localhost:4200/sockjs-node/136/gja1gdo4/websocket' failed: WebSocket is closed before the connection is established.", source: http://localhost:4200/vendor.js (101571)
+[19860:20152:0605/111304.913:INFO:CONSOLE(884)] "Start", source: http://localhost:4200/main.js (884)
+[19860:20152:0605/111304.926:INFO:CONSOLE(566)] "undefined", source: http://localhost:4200/main.js (566)
+[19860:20152:0605/111304.934:INFO:CONSOLE(52952)] "Angular is running in the development mode. Call enableProdMode() to enable the production mode.", source: http://localhost:4200/vendor.js (52952)
+[19860:20152:0605/111305.079:INFO:CONSOLE(566)] "[object Object],[object Object],[object Object],[object Object]", source: http://localhost:4200/main.js (566)
+[19860:20152:0605/111305.267:INFO:CONSOLE(101571)] "WebSocket connection to 'ws://localhost:4200/sockjs-node/906/4a31ngoq/websocket' failed: WebSocket is closed before the connection is established.", source: http://localhost:4200/vendor.js (101571)
+[19860:20152:0605/111307.308:INFO:CONSOLE(884)] "Start", source: http://localhost:4200/main.js (884)
+[19860:20152:0605/111307.316:INFO:CONSOLE(566)] "undefined", source: http://localhost:4200/main.js (566)
+[19860:20152:0605/111307.327:INFO:CONSOLE(52952)] "Angular is running in the development mode. Call enableProdMode() to enable the production mode.", source: http://localhost:4200/vendor.js (52952)
+[19860:20152:0605/111307.460:INFO:CONSOLE(566)] "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://localhost:4200/main.js (566)
+[19860:20152:0605/111307.755:INFO:CONSOLE(884)] "Login", source: http://localhost:4200/main.js (884)
+[19860:20152:0605/111307.936:INFO:CONSOLE(884)] "Register", source: http://localhost:4200/main.js (884)
+[19860:20152:0605/111308.108:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o", source: http://localhost:4200/ (0)
+[19860:20152:0605/111308.780:INFO:CONSOLE(754)] "0", source: http://localhost:4200/main.js (754)
+[19860:20152:0605/111308.783:INFO:CONSOLE(764)] "0", source: http://localhost:4200/main.js (764)
+[19860:20152:0605/111309.145:INFO:CONSOLE(884)] "Login", source: http://localhost:4200/main.js (884)
+[19860:20152:0605/111309.458:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq)", source: http://localhost:4200/ (0)
+[19860:20152:0605/111309.995:INFO:CONSOLE(649)] "Succes", source: http://localhost:4200/main.js (649)
+[19860:20152:0605/111309.996:INFO:CONSOLE(884)] "Start", source: http://localhost:4200/main.js (884)
+[19860:20152:0605/111310.000:INFO:CONSOLE(566)] "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]", source: http://localhost:4200/main.js (566)

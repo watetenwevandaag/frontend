@@ -11,7 +11,7 @@ export class AppPage {
   }
 
   getLoginButton(){
-    return element(by.id('test'));
+    return element(by.id('pannekoek'));
   }
 
   getSearchButton(){
@@ -39,23 +39,27 @@ export class AppPage {
   }
 
   getRegisterCompleteButton(){
-    return element(by.css('.btn-success'));
+    return element(by.id('registerCompleteButton'));
   }
    
   getLoginCompleteButton(){
-    return element(by.css('.btn-success'));
+    return element(by.id('loginCompleteButton'));
   }
 
   getUsernameTitle(){
-    return element(by.id('usernameTitle')).getText() as Promise<string>;
+    return element(by.id('usernameTitle'));
   }
 
-  getLoginForm(){
-    return element(by.id('loginForm'));
+  getLoginUsernameField(){
+    return element(by.id('loginUsernameForm'));
   }
    
-  getRegisterForm(){
-    return element(by.id('registerForm'));
+  getLoginPasswordField(){
+    return element(by.id('loginPasswordForm'));
+  }
+
+  getCreateRecipeButton(){
+    return element(by.id('createRecipe'));
   }
   
 }
