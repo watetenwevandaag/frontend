@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Recipe } from './models/recipe.model';
+import { Cook } from './models/cook';
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +24,24 @@ export class RecipeService {
     .catch(this.handleError);
   }
 
+  public updateRecipe(recipe: Recipe): Promise<Recipe>{
+    return this.http.put('http://localhost:8090/recipe/update', recipe)
+    .toPromise()
+    .then(response => response as Recipe)
+    .catch(this.handleError);
+  }
+
   public searchRecipe(name: string): Promise<Recipe[]>{
     return this.http.get('http://localhost:8090/recipe/byName/'+ name)
     .toPromise()
     .then(response => response as Recipe)
+    .catch(this.handleError);
+  }
+
+  public getOwnRecipes(cook: Cook): Promise<Recipe[]>{
+    return this.http.get('http://localhost:8090/recipe/getByCook/'+cook.username)
+    .toPromise()
+    .then(response => response as Recipe[])
     .catch(this.handleError);
   }
 

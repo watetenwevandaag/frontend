@@ -56,6 +56,13 @@ export class AppComponent implements OnInit {
     this.userData.setViewData('GenerateWeekMenu');
   }
 
+  getOwnRecipes(){
+    this.recipeService.getOwnRecipes(this.userData.getCook()).then((recipeList: Recipe[]) => {
+      this.recipes = recipeList;
+    })
+    this.userData.setViewData('OwnRecipes');
+  }
+
 
 
 

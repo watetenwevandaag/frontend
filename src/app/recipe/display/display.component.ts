@@ -18,6 +18,19 @@ export class DisplayComponent implements OnChanges {
       console.log(changes.recipes.currentValue);
   }
 
+  editRecipe(recipeId: number){
+    var recipeToUpdate: Recipe;
+    this.recipes.forEach(recipe => {
+     if(recipe.id = recipeId ){
+        recipeToUpdate = recipe;
+     }
+    });
+    var recipes = []
+    recipes[0] = recipeToUpdate;
+    this.userData.setRecipes(recipes);
+    this.userData.setViewData('EditRecipe');
+  }
+
   
 
 

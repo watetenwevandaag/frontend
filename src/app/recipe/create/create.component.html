@@ -1,58 +1,64 @@
 <div style="width: 800px; padding: 40px;">
-   <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
-      <h2>Jouw Recept:</h2>
-      <div class="form-group">
-        <label>Naam:</label>
-        <input type="text" class="form-control" placeholder="Email" formControlName="name"/>
-      </div>
-  
-      <div class="form-group">
-        <label>Beschrijving:</label>
-        <input type="text" class="form-control" placeholder="Username" formControlName="description"/>
-      </div>
-  
-      <div class="register-group">
-        <label>Voor aantal personen:</label>
-        <input type="number" class="form-control" placeholder="Password" formControlName="forNumberOfPeople"/>
-      </div>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <h2>Jouw Recept:</h2>
+    <div class="form-group">
+      <label>Naam:</label>
+      <input type="text" class="form-control" placeholder="Recept Naam" formControlName="name" />
+    </div>
 
-      <div class="form-group">
-        <label>Vegetarisch:</label>
-        <input type="checkbox" class="form-control" placeholder="Username" formControlName="isVegan"/>
-      </div>
+    <div class="form-group">
+      <label>Instructies::</label>
+      <input type="text" class="form-control" placeholder="Instructies" formControlName="description" />
+    </div>
 
-        <div class="form-group">
-          <label>Bereidingstijd:</label>
-          <input type="time" step="1" class="form-control" placeholder="Username" formControlName="cookingTime"/>
+    <div class="register-group">
+      <label>Voor aantal personen:</label>
+      <input type="number" class="form-control" formControlName="forNumberOfPeople" />
+    </div>
+
+    <div class="form-group">
+      <label>Vegetarisch:</label>
+      <input type="checkbox" class="form-control" formControlName="isVegan" />
+    </div>
+
+    <div class="form-group">
+      <label>Bereidingstijd: (HH:MM:SS format)</label>
+      <input type="time" step="1" class="form-control" formControlName="cookingTime" />
+    </div>
+
+    <div>
+      <h3>Ingredienten:</h3>
+      <div style="width: 1200px;"
+        *ngFor="let createFormGroup of createForm.controls.ingredients.controls; let i = index">
+        <div [formGroup]="createFormGroup">
+          <label style="padding-right:20px;">Naam:</label>
+          <input style="margin-right:10px;" formControlName="name">
+          <label style="padding-right:20px;">Hoeveelheid:</label>
+          <input style="margin-right:10px;" formControlName="quantity">
+          <label style="padding-right:20px;">Eenheid:</label>
+          <input style="margin-right:10px;" formControlName="unit">
+
+          <button type='button' (click)="removeIngredient(i)">Delete</button>
         </div>
-
-      <div>
-        <h3>Ingredienten:</h3>
-          <div *ngFor="let createFormGroup of createForm.controls.ingredients.controls; let i = index">
-              <div [formGroup] = "createFormGroup">
-                  <input formControlName="name">
-                  <input formControlName="quantity">
-                  <input formControlName="unit">
-        
-                  <button (click)="removeIngredient(i)">Delete</button>
-              </div>
-          </div>
-          <button (click)="addIngredient()">Voeg ingredient toe</button>
       </div>
-      
-      <div>
-        <h3>Keukengerei:</h3>
-          <div *ngFor="let createFormGroup of createForm.controls.equipmentUsed.controls; let i = index">
-              <div [formGroup] = "createFormGroup">
-                  <input formControlName="name">
-        
-                  <button (click)="removeEquipment(i)">Delete</button>
-              </div>
-          </div>
-          <button (click)="addEquipment()">Voeg keukengerei toe</button>
-      </div>   
-      
-      <button class="btn btn-success" >Maak Recept!</button>
+      <button type='button' (click)="addIngredient()">Voeg ingredient toe</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <h3>Keukengerei:</h3>
+      <div *ngFor="let createFormGroup of createForm.controls.equipmentUsed.controls; let i = index">
+        <div [formGroup]="createFormGroup">
+
+          <label>Naam:</label>
+          <input formControlName="name">
+
+          <button type='button' (click)="removeEquipment(i)">Delete</button>
+        </div>
+      </div>
+      <button type='button' (click)="addEquipment()">Voeg keukengerei toe</button>
+    </div>
+
+    <button class="btn btn-success">Maak Recept!</button>
 
   </form>
-  </div>
+</div>
