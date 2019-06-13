@@ -26,22 +26,49 @@ describe('workspace-project App', () => {
   });
 
   it('should create account and login', () => {
-    var i = 1;
     page.navigateTo();
     page.getLoginButton().click();
     page.getRegisterButton().click();
-    page.getRegisterFormFieldEmail().sendKeys('AutoTestUser'+i)
-    page.getRegisterFormFieldUsername().sendKeys('AutoTestUser'+i)
-    page.getRegisterFormFieldPassword().sendKeys('AutoTestUser'+i)
+    page.getRegisterFormFieldEmail().sendKeys('AutoTestUser')
+    page.getRegisterFormFieldUsername().sendKeys('AutoTestUser')
+    page.getRegisterFormFieldPassword().sendKeys('AutoTestUser')
     browser.wait(EC.elementToBeClickable(page.getRegisterCompleteButton()),5000);
     page.getRegisterCompleteButton().click();
     browser.wait(EC.presenceOf(page.getLoginPasswordField()),5000);
-    expect(page.getLoginPasswordField().getText()).toEqual('')
-    page.getLoginPasswordField().sendKeys('AutoTestUser'+i)
-    page.getLoginUsernameField().sendKeys('AutoTestUser'+i)
+    page.getLoginPasswordField().sendKeys('AutoTestUser')
+    page.getLoginUsernameField().sendKeys('AutoTestUser')
     page.getLoginCompleteButton().click();
     browser.wait(EC.presenceOf(page.getCreateRecipeButton()),10000);
     expect(EC.presenceOf(page.getCreateRecipeButton())).toBeTruthy();
+  });
+
+  it('should create recipe with logged in user and get the recipe from own recipes', ()=>{
+    page.navigateTo();
+    page.getLoginButton().click();
+    page.getRegisterButton().click();
+    page.getRegisterFormFieldEmail().sendKeys('AutoTestCreate')
+    page.getRegisterFormFieldUsername().sendKeys('AutoTestCreate')
+    page.getRegisterFormFieldPassword().sendKeys('AutoTestCreate')
+    browser.wait(EC.elementToBeClickable(page.getRegisterCompleteButton()),5000);
+    page.getRegisterCompleteButton().click();
+    browser.wait(EC.presenceOf(page.getLoginPasswordField()),5000);
+    page.getLoginPasswordField().sendKeys('AutoTestCreate')
+    page.getLoginUsernameField().sendKeys('AutoTestCreate')
+    browser.wait(EC.elementToBeClickable(page.getLoginCompleteButton()),5000);
+    page.getLoginCompleteButton().click();
+    browser.wait(EC.presenceOf(page.getCreateRecipeButton()),10000);
+    page.getCreateRecipeButton().click();
+    browser.wait(EC.presenceOf(page.getRecipeCreateFieldCookingTime()),5000);
+    page.getRecipeCreateFieldCookingTime().sendKeys(121221)
+    page.getRecipeCreateFieldName().sendKeys('Lekker Recept')
+    page.getRecipeCreateFieldPeople().sendKeys(4);
+    page.getRecipeCreateFieldDesc().sendKeys('Een lekker recept!')
+    browser.wait(EC.elementToBeClickable(page.getRecipeCreateFinishButton()),5000);
+    page.getRecipeCreateFinishButton().click();
+    browser.wait(EC.presenceOf(page.getOwnRecipes()),10000);
+    page.getOwnRecipes().click();
+    browser.wait(EC.presenceOf(page.getRecipeDesc().get(0)),5000);
+    expect(page.getRecipeDesc().get(0).getText()).toEqual('Een lekker recept!')
   });
 
   afterEach(async () => {

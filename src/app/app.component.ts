@@ -37,6 +37,11 @@ export class AppComponent implements OnInit {
       this.searchForm.reset();
   }
 
+  goHome(){
+    this.getAllRecipes();
+    this.userData.setViewData('Start')
+  }
+
   getAllRecipes(){
     this.recipeService.getRecipes().then((recipeList: Recipe[]) => {
       this.recipes = recipeList;

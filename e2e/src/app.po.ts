@@ -62,4 +62,33 @@ export class AppPage {
     return element(by.id('createRecipe'));
   }
   
+  getRecipeCreateFieldName(){
+    return element(by.css("input[formControlName=name]"))
+  }
+  getRecipeCreateFieldDesc(){
+    return element(by.css("input[formControlName=description]"))
+  }
+
+  getRecipeCreateFieldPeople(){
+    return element(by.css("input[formControlName=forNumberOfPeople]"))
+  }
+  getRecipeCreateFieldCookingTime(){
+    return element(by.css("input[formControlName=cookingTime]"))
+  }
+
+  getRecipeCreateFinishButton(){
+    return element(by.id('createRecipeButton'))
+  }
+
+  getOwnRecipes(){
+    return element(by.id('ownRecipesBtn'))
+  }
+
+  getRecipeTitels(){
+    return element.all(by.className('receptTitel'))
+  }
+
+  getRecipeDesc(){
+    return element.all(by.className('recepipeDesc'))
+  }
 }

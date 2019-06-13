@@ -3,14 +3,14 @@
   <li style="background-color:lightgray; border-radius: 25px; padding:20px; margin-bottom: 30px;"
     *ngFor="let test of recipes">
     <div>
-      <h1>{{test.name}} {{test.id}}</h1>
+      <h1>{{test.name}}</h1>
       <p *ngIf="test.isVegan == 1"> Dit recept is vegatarisch!</p>
       <p *ngIf="test.isVegan == 0">  Dit recept is niet vegatarisch!</p>
       <p>Gemaakt door: {{test.owner.username }}</p>
       <p>Voor {{test.forNumberOfPeople}} personen</p>
       <p>Dit recept duurt: {{test.cookingTime}} om te maken.</p>
       <h3>Instructies:</h3>
-      <p> {{test.description}}</p>
+      <p class="recepipeDesc"> {{test.description}}</p>
       <h3>Ingredienten:</h3>
       <ul>
         <li *ngFor="let ingredient of test.ingredients">
