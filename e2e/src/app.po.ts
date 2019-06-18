@@ -91,4 +91,8 @@ export class AppPage {
   getRecipeDesc(){
     return element.all(by.className('recepipeDesc'))
   }
+
+  getCreateError(){
+    return element(by.id('createError'))
+  }
 }

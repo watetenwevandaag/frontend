@@ -15,3 +15,11 @@
 #recipeList > li {
     width: 30%;
 }
+
+#toHide {
+    display: none;
+}
+    
+#toShow:hover + #toHide {
+    display: block;
+}

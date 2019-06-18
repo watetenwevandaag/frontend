@@ -37,8 +37,4 @@
     <app-create [view]="this.userData.getViewData()"></app-create>
 </div>
 
-<div *ngIf="this.userData.getViewData() == 'GenerateWeekMenu'">
-    <app-register></app-register>
-</div>
-
 <router-outlet></router-outlet>

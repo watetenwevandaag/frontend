@@ -42,6 +42,18 @@ describe('workspace-project App', () => {
     expect(EC.presenceOf(page.getCreateRecipeButton())).toBeTruthy();
   });
 
+  it('should create account and fail', () => {
+    page.navigateTo();
+    page.getLoginButton().click();
+    page.getRegisterButton().click();
+    page.getRegisterFormFieldEmail().sendKeys('AutoTestUser')
+    page.getRegisterFormFieldUsername().sendKeys('AutoTestUser')
+    page.getRegisterFormFieldPassword().sendKeys('AutoTestUser')
+    browser.wait(EC.elementToBeClickable(page.getRegisterCompleteButton()),5000);
+    page.getRegisterCompleteButton().click();
+    expect(EC.presenceOf(page.getCreateError())).toBeTruthy();
+  });
+
   it('should create recipe with logged in user and get the recipe from own recipes', ()=>{
     page.navigateTo();
     page.getLoginButton().click();
@@ -62,13 +74,13 @@ describe('workspace-project App', () => {
     page.getRecipeCreateFieldCookingTime().sendKeys(121221)
     page.getRecipeCreateFieldName().sendKeys('Lekker Recept')
     page.getRecipeCreateFieldPeople().sendKeys(4);
-    page.getRecipeCreateFieldDesc().sendKeys('Een lekker recept!')
+    page.getRecipeCreateFieldDesc().sendKeys('')
     browser.wait(EC.elementToBeClickable(page.getRecipeCreateFinishButton()),5000);
     page.getRecipeCreateFinishButton().click();
     browser.wait(EC.presenceOf(page.getOwnRecipes()),10000);
     page.getOwnRecipes().click();
     browser.wait(EC.presenceOf(page.getRecipeDesc().get(0)),5000);
-    expect(page.getRecipeDesc().get(0).getText()).toEqual('Een lekker recept!')
+    expect(page.getRecipeDesc().get(0).getText()).toEqual('')
   });
 
   afterEach(async () => {

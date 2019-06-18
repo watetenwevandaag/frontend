@@ -17,7 +17,7 @@
     </div>
 
     <button id="registerCompleteButton" class="btn btn-success" >Register!</button>
-    <div *ngIf="this.succes === 1" class="alert alert-danger">
+    <div  id="createError" *ngIf="this.succes == -1" class="alert alert-danger">
       Woops something went wrong
     </div>
   </form>

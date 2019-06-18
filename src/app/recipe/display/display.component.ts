@@ -29,6 +29,7 @@ export class DisplayComponent implements OnChanges {
     recipes[0] = recipeToUpdate;
     this.userData.setRecipes(recipes);
     this.userData.setViewData('EditRecipe');
+    
   }
 
   

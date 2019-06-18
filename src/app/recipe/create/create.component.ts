@@ -143,6 +143,7 @@ export class CreateComponent implements OnInit, OnChanges {
   }
 
   onSubmit(){
+    var createdRecipes = [];
     if(this.recipeToUpdate == null){
       this.createdRecipe = this.createForm.value;
       var stringArray = this.createdRecipe.equipmentUsed.map(function(item) {
@@ -152,6 +153,7 @@ export class CreateComponent implements OnInit, OnChanges {
       this.createdRecipe.owner = this.userDataService.getCook();
       console.log(this.createdRecipe);
       this.recipeService.createRecipe(this.createdRecipe);
+      createdRecipes.push(this.createdRecipe);
     }else{
       var id = this.recipeToUpdate.id;
       this.recipeToUpdate = this.createForm.value;
@@ -162,9 +164,10 @@ export class CreateComponent implements OnInit, OnChanges {
       this.recipeToUpdate.id = id;
       console.log(this.recipeToUpdate);
       this.recipeService.updateRecipe(this.recipeToUpdate);
+      createdRecipes.push(this.recipeToUpdate);
     }
     stringArray = [];
-    this.userDataService.setRecipes(null);
-    this.userDataService.setViewData('Start')
+    this.userDataService.setRecipes(createdRecipes);
+    this.userDataService.setViewData('OwnRecipes')
   }
 }

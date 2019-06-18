@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       this.userData.setViewData('Start');
     },
     error =>{
-      console.log("Mislukt")
+      console.log(error)
       this.succes = -1;
       this.resetLogin();
     });

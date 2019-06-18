@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit {
     password: ''
   };
 
+  succes = 0;
+
   constructor(private userService: UserService, private userData:UserdataService) { }
 
   registerForm = new FormGroup({
@@ -37,17 +39,27 @@ export class RegisterComponent implements OnInit {
   }
 
   saveCook(){
-    var succes = 0;
-    console.log(succes);
     this.userService.registerUser(this.registerCook).then((loggedInCook: Cook) => {
       if (loggedInCook.username != null) {
         this.userData.setViewData('Login')
-        succes = 1;
+        this.succes = 1;
       } else {
-        succes = -1;
+        this.succes = -1;
       }
+    },
+    error =>{
+      console.log(error)
+      this.succes = -1;
+      this.resetInput();
     });
-    console.log(succes)
   }
 
+  resetInput(){
+    this.registerForm = new FormGroup({
+      email: new FormControl(''),
+      username: new FormControl(''),
+      password: new FormControl(''),
+    });
+  
+  }
 }
